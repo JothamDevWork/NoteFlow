@@ -40,3 +40,49 @@ A JavaScript-based note management application that allows users to create, edit
 ## Preview
 
 ![NoteFlow Screenshot](./assets/noteflow-preview.png) COMING SOON
+
+
+## Installation
+
+### Clone the Repository
+
+```bash
+git clone https://github.com/JothamDevWork/NoteFlow.git
+```
+
+### Navigate to the Project Folder
+
+```bash
+cd NoteFlow
+```
+
+### Open the Project
+
+Since NoteFlow is built with vanilla HTML, CSS, and JavaScript, no additional dependencies are required.
+
+Open `index.html` in your browser:
+
+```bash
+start index.html
+```
+
+Or simply double-click the `index.html` file.
+
+## Usage
+
+1. Enter a note title.
+2. Enter the note content.
+3. Click **Add Note**.
+4. Search, edit, and delete notes.
+5. Notes are automatically saved using localStorage and remain available after refreshing the page.
+
+## Project Structure
+
+```text
+NoteFlow/
+│
+├── index.html
+├── style.css
+├── script.js
+└── README.md
+```
