@@ -40,7 +40,7 @@ A JavaScript-based note management application that allows users to create, edit
 
 ## Preview
 
-![NoteFlow Screenshot](./assets/screenshot/Day1.jpg)
+<img src="assets/screenshot/Day1.jpg" alt="NoteFlow Screenshot" width="800">
 
 ## Installation
 
