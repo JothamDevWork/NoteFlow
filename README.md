@@ -1,4 +1,5 @@
 # NoteFlow
+
 A JavaScript-based note management application that allows users to create, edit, delete, search, and organize notes. The project demonstrates DOM manipulation, event handling, local storage persistence, JSON handling, and dynamic UI updates using vanilla JavaScript.
 
 ## Technologies Used
@@ -7,7 +8,7 @@ A JavaScript-based note management application that allows users to create, edit
 - CSS3
 - JavaScript (ES6+)
 - localStorage
-  
+
 ## Skills Demonstrated
 
 - DOM Manipulation
@@ -20,7 +21,7 @@ A JavaScript-based note management application that allows users to create, edit
 - Search Functionality
 - CRUD Operations
 
- ## Features
+## Features
 
 - Create notes
 - Edit notes
@@ -40,7 +41,6 @@ A JavaScript-based note management application that allows users to create, edit
 ## Preview
 
 ![NoteFlow Screenshot](./assets/noteflow-preview.png) COMING SOON
-
 
 ## Installation
 
