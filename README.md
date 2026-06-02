@@ -30,7 +30,7 @@ A JavaScript-based note management application that allows users to create, edit
 - Store notes in localStorage
 - Auto-tag notes based on keywords
 
-- ## Future Improvements
+## Future Improvements
 
 - Dark Mode
 - Categories and Tags
@@ -40,7 +40,7 @@ A JavaScript-based note management application that allows users to create, edit
 
 ## Preview
 
-![NoteFlow Screenshot](./assets/screenshot/Day1.jpg) COMING SOON
+![NoteFlow Screenshot](./assets/screenshot/Day1.jpg)
 
 ## Installation
 
@@ -81,8 +81,15 @@ Or simply double-click the `index.html` file.
 ```text
 NoteFlow/
 │
+├── assets/
+│   └── screenshot/
+│       └── Day1.jpg
+├── css/
+├── js/
 ├── index.html
-├── style.css
-├── script.js
 └── README.md
 ```
+
+## Author
+
+Jotham DevWork
