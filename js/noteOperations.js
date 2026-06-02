@@ -1,4 +1,5 @@
-let addNote = () => {
+/*Add Note Operation*/
+export const addNote = () => {
   const title = noteTitle.value.trim();
   const content = noteContent.value.trim();
   if (title && content) {
@@ -7,5 +8,3 @@ let addNote = () => {
     notesContainer.appendChild(note);
   }
 };
-
-export { addNote };
