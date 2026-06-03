@@ -1,10 +1,18 @@
+import * as noteOperations from "./noteOperations.js";
 const noteTitle = document.getElementById("noteTitle");
 const noteContent = document.getElementById("noteContent");
 const addNoteBtn = document.getElementById("addNoteBtn");
 const notesContainer = document.getElementById("notesContainer");
 
-addNoteBtn.addEventListener("click", async (event) => {
+addNoteBtn.addEventListener("click", (event) => {
   event.preventDefault();
-  let module = await import("./noteOperations.js");
-  module.addNote();
+
+  noteOperations.addNote({
+    noteTitle,
+    noteContent,
+    notesContainer,
+  });
 });
+
+noteOperations.deleteNote(notesContainer);
+noteOperations.editNote(notesContainer);
