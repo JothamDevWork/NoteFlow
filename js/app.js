@@ -13,6 +13,3 @@ addNoteBtn.addEventListener("click", (event) => {
     notesContainer,
   });
 });
-
-noteOperations.deleteNote(notesContainer);
-noteOperations.editNote(notesContainer);
