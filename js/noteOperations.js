@@ -1,70 +1,84 @@
 import { getNotes, saveNotes } from "./localStorage.js";
 
-/*Add Note Operation*/
+/*Parameter Destructuring - is  when destructuring is used directly to  function's  parameter list to etract values*/
 export const addNote = ({ noteTitle, noteContent, notesContainer }) => {
   const title = noteTitle.value.trim();
   const content = noteContent.value.trim();
 
-  if (title && content) {
-    const note = document.createElement("li");
-    note.innerHTML = `<strong>${title}</strong><br>${content}`;
+  if (!title || !content)
+    return; /* this  is a  guard clause if one of the variables are
+   empty which i makes it true  return will run  but if both variables have values then it is false and  continuous  the reading the remaining code.  */
 
-    const deleteBtn = document.createElement("button");
-    const editBtn = document.createElement("button");
+  const notes = getNotes(); /* this returns an  Array of objects */
+  console.log(notes);
+  notes.push({
+    title,
+    content,
+  });
 
-    deleteBtn.innerHTML = "Delete";
+  saveNotes(notes);
 
-    deleteBtn.addEventListener("click", (event) => {
-      event.target.parentElement.remove();
+  /*LOCAL STORAGE ADD NOTE PROCESS ^^^^*/
+  renderNote({
+    title,
+    content,
+    notesContainer,
+  });
+};
 
-      let notes = getNotes();
+export const renderNote = ({ title, content, notesContainer }) => {
+  const note = document.createElement("li");
+  note.innerHTML = `<strong>${title}</strong><br>${content}`;
 
-      notes = notes.filter(
-        (note) => !(note.title === title && note.content === content),
-      );
+  const deleteBtn = document.createElement("button");
+  const editBtn = document.createElement("button");
 
-      saveNotes(notes);
-    });
+  deleteBtn.textContent = "Delete";
+  editBtn.textContent = "Edit";
 
-    editBtn.innerHTML = "Edit";
+  deleteBtn.addEventListener("click", () => {
+    note.remove();
 
-    editBtn.addEventListener("click", () => {
-      const newtitle = prompt("Edit Title", title);
-      const newcontent = prompt("Edit Content", content);
+    /*LOCAL STORAGE REMOVE PROCESS*/
+    let notes = getNotes();
 
-      if (newtitle !== "" || newcontent) {
-        note.innerHTML = `<strong>${newtitle}</strong><br>${newcontent}`;
-        note.appendChild(deleteBtn);
-        note.appendChild(editBtn);
+    notes = notes.filter(
+      (item) => !(item.title === title && item.content === content),
+    );
 
-        const notes = getNotes();
+    saveNotes(notes);
 
-        const updatedNotes = notes.map((item) => {
-          if (item.title === title && item.content === content) {
-            return {
-              title: newtitle,
-              content: newcontent,
-            };
-          }
+    /*LOCAL STORAGE REMOVE PROCESS ^^*/
+  });
 
-          return item;
-        });
+  editBtn.addEventListener("click", () => {
+    const newTitle = prompt("Edit Title", title);
+    const newContent = prompt("Edit Content", content);
 
-        saveNotes(updatedNotes);
-      }
-    });
+    if (!newTitle && !newContent) return;
+
+    note.innerHTML = `<strong>${newTitle}</strong><br>${newContent}`;
 
     note.appendChild(deleteBtn);
     note.appendChild(editBtn);
-    notesContainer.appendChild(note);
 
     const notes = getNotes();
 
-    notes.push({
-      title,
-      content,
+    const updatedNotes = notes.map((item) => {
+      if (item.title === title && item.content === content) {
+        return {
+          title: newTitle,
+          content: newContent,
+        };
+      }
+
+      return item;
     });
 
-    saveNotes(notes);
-  }
+    saveNotes(updatedNotes);
+  });
+
+  note.appendChild(deleteBtn);
+  note.appendChild(editBtn);
+  notesContainer.appendChild(note);
 };

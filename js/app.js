@@ -30,9 +30,9 @@ window.addEventListener("DOMContentLoaded", () => {
   const notes = getNotes();
 
   notes.forEach((item) => {
-    noteOperations.addNote({
-      noteTitle: { value: item.title },
-      noteContent: { value: item.content },
+    noteOperations.renderNote({
+      title: item.title,
+      content: item.content,
       notesContainer,
     });
   });
