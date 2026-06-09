@@ -4,6 +4,7 @@ import { getNotes, saveNotes } from "./localStorage.js";
 export const addNote = ({ noteTitle, noteContent, notesContainer }) => {
   const title = noteTitle.value.trim();
   const content = noteContent.value.trim();
+  const id = Date.now();
 
   if (!title || !content)
     return; /* this  is a  guard clause if one of the variables are
@@ -12,6 +13,7 @@ export const addNote = ({ noteTitle, noteContent, notesContainer }) => {
   const notes = getNotes(); /* this returns an  Array of objects */
   console.log(notes);
   notes.push({
+    id,
     title,
     content,
   });
@@ -20,13 +22,14 @@ export const addNote = ({ noteTitle, noteContent, notesContainer }) => {
 
   /*LOCAL STORAGE ADD NOTE PROCESS ^^^^*/
   renderNote({
+    id,
     title,
     content,
     notesContainer,
   });
 };
 
-export const renderNote = ({ title, content, notesContainer }) => {
+export const renderNote = ({ id, title, content, notesContainer }) => {
   const note = document.createElement("li");
   note.innerHTML = `<strong>${title}</strong><br>${content}`;
 
@@ -42,9 +45,8 @@ export const renderNote = ({ title, content, notesContainer }) => {
     /*LOCAL STORAGE REMOVE PROCESS*/
     let notes = getNotes();
 
-    notes = notes.filter(
-      (item) => !(item.title === title && item.content === content),
-    );
+    /*!(item.title === title && item.content === content) */
+    notes = notes.filter((item) => item.id !== id);
 
     saveNotes(notes);
 
@@ -63,10 +65,11 @@ export const renderNote = ({ title, content, notesContainer }) => {
     note.appendChild(editBtn);
 
     const notes = getNotes();
-
+    /*item.title === title && item.content === content */
     const updatedNotes = notes.map((item) => {
-      if (item.title === title && item.content === content) {
+      if (item.id === id) {
         return {
+          id: item.id,
           title: newTitle,
           content: newContent,
         };

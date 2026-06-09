@@ -31,6 +31,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
   notes.forEach((item) => {
     noteOperations.renderNote({
+      id: item.id,
       title: item.title,
       content: item.content,
       notesContainer,
