@@ -12,35 +12,65 @@
 */
 
 @layer components {
-  .navbar {
-    @apply flex justify-between items-center bg-[#1A1D1A] h-16  w-full px-[80px] py-[8px];
+  #navbar {
+    @apply bg-[#1A1D1A];
+    @apply h-16  w-full px-[80px] py-[8px];
+    @apply flex justify-between items-center;
   }
 
-  .brandnamelogo {
-    @apply inline-flex  gap-[5px];
+  #brandnameLogo {
+    @apply inline-flex  gap-1.25;
   }
 
-  .brandlogo {
+  #brandLogo {
     @apply h-13.75 w-12.5;
   }
-  .brandname {
+  #brandName {
     @apply relative;
   }
-  .brandname h1 {
+  #brandName h1 {
     @apply text-[32px] font-bold font-[poppins];
   }
-  .brandname p {
+  #brandName p {
     @apply text-[18px] font-[caveat] text-[#2E9E5B];
     @apply absolute top-[27px] left-full;
   }
 
-  .settingicon {
-    @apply size-[24];
+  #settingIcon {
+    @apply size-[24px];
   }
 }
 
+@layer components {
+  main {
+    @apply h-screen;
+    @apply bg-[#121412];
+    @apply p-[80px];
+  }
+
+  #addNoteButton {
+    @apply flex justify-center items-center;
+    @apply w-[117px] h-[38px];
+    @apply hover:bg-[#5FE891] active:bg-[#74EC9F];
+    @apply bg-[#4ADE80] rounded-[6px];
+    @apply font-[poppins] text-[14px] font-semibold text-[#0E1410];
+    @apply fixed bottom-20 left-[50%] -translate-x-[50%];
+  }
+}
+
+@layer components {
+  footer {
+    @apply flex justify-center items-center;
+    @apply h-[48px];
+    @apply bg-[#0E100E];
+  }
+
+  footer p {
+    @apply text-[#8A938C];
+  }
+}
 @layer utilities {
-  .gradient-text {
+  #gradientText {
     background: linear-gradient(180deg, #1b5e3a 0%, #1b5e3a 50%, #4ade80 100%);
     -webkit-background-clip: text;
     background-clip: text;
