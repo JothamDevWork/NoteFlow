@@ -7,7 +7,7 @@ function saveNotes() {
 }
 
 // Create a note card element
-function createNoteCard(note) {
+function createNoteCard(note, masonry) {
   const card = document.createElement("div");
   card.classList.add("note-card");
   card.dataset.id = note.id;
@@ -23,7 +23,7 @@ function createNoteCard(note) {
 
   // Delete logic
   card.querySelector(".deleteBtn").addEventListener("click", () => {
-    deleteNote(note.id, card);
+    deleteNote(note.id, card, masonry);
   });
 
   // Edit logic
@@ -35,7 +35,7 @@ function createNoteCard(note) {
 }
 
 // Add a new note
-export function addNote(title, content, container) {
+export function addNote(title, content, container, masonry) {
   const note = {
     id: Date.now(),
     title,
@@ -47,6 +47,8 @@ export function addNote(title, content, container) {
 
   const card = createNoteCard(note);
   container.appendChild(card);
+
+  return card;
 }
 
 // Load notes from localStorage on page load
@@ -61,6 +63,7 @@ function deleteNote(id, card) {
   notes = notes.filter((n) => n.id !== id);
   saveNotes();
   card.remove();
+  masonry.layout();
 }
 
 function editNote(note, card) {

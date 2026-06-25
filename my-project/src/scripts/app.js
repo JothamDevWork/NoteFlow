@@ -1,3 +1,4 @@
+import Masonry from "masonry-layout";
 import * as noteOperations from "/src/scripts/noteOperations.js";
 
 const addNoteBtn = document.getElementById("addNoteBtn");
@@ -7,6 +8,16 @@ const modalCancelBtn = document.getElementById("modalCancelBtn");
 const modalConfirmBtn = document.getElementById("modalConfirmBtn");
 const noteTitleInput = document.getElementById("noteTitleInput");
 const noteContentInput = document.getElementById("noteContentInput");
+
+// Load saved notes first
+noteOperations.loadNotes(noteContainer);
+
+// Init Masonry AFTER notes are loaded
+const masonry = new Masonry(noteContainer, {
+  itemSelector: ".note-card",
+  columnWidth: ".note-card",
+  gutter: 16,
+});
 
 // Open modal
 addNoteBtn.addEventListener("click", () => {
@@ -27,15 +38,15 @@ modalConfirmBtn.addEventListener("click", () => {
 
   if (!title && !content) return;
 
-  noteOperations.addNote(title, content, noteContainer);
+  const card = noteOperations.addNote(title, content, noteContainer);
+  masonry.appended(card);
+  masonry.layout();
 
   modalOverlay.classList.add("hidden");
   noteTitleInput.value = "";
   noteContentInput.value = "";
 });
-console.log(window.innerWidth);
-// Load saved notes on startup
-noteOperations.loadNotes(noteContainer);
+
 /*import * as noteOperations from "./noteOperations.js";
 import * as searchFilterOperations from "./searchFilterOperations.js";
 import { getNotes } from "./localStorage.js";

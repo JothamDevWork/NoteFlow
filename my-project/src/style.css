@@ -43,11 +43,14 @@
 
 @layer components {
   main {
-    @apply h-screen;
-    @apply bg-[#121412];
-    @apply p-[80px];
-    @apply flex flex-wrap gap-4 content-start;
+    @apply min-h-screen bg-[#121412] p-[80px];
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-wrap: wrap;
+    overflow-x: hidden;
   }
+
   #addNoteBtn {
     @apply flex justify-center items-center;
     @apply w-[117px] h-[38px];
@@ -55,6 +58,7 @@
     @apply bg-[#4ADE80] rounded-[6px];
     @apply font-[poppins] text-[14px] font-semibold text-[#0E1410];
     @apply fixed bottom-20 left-[50%] -translate-x-[50%];
+    @apply z-75;
   }
 }
 
@@ -120,7 +124,11 @@
 
   .note-card {
     @apply bg-[#1A1D1A] rounded-[8px] p-5 flex flex-col gap-3;
-    @apply w-[300px] h-fit;
+    width: 280px;
+    @apply mb-4;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    min-width: 0;
   }
   .note-title {
     @apply text-white font-[poppins] font-bold text-[16px];
