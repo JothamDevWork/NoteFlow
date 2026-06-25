@@ -46,8 +46,8 @@
     @apply h-screen;
     @apply bg-[#121412];
     @apply p-[80px];
+    @apply flex flex-wrap gap-4 content-start;
   }
-
   #addNoteBtn {
     @apply flex justify-center items-center;
     @apply w-[117px] h-[38px];
@@ -112,6 +112,46 @@
     @apply hover:bg-[#5FE891] active:bg-[#74EC9F];
   }
 }
+
+@layer components {
+  #noteCon {
+    @apply flex flex-wrap gap-4;
+  }
+
+  .note-card {
+    @apply bg-[#1A1D1A] rounded-[8px] p-5 flex flex-col gap-3;
+    @apply w-[300px] h-fit;
+  }
+  .note-title {
+    @apply text-white font-[poppins] font-bold text-[16px];
+  }
+
+  .note-content {
+    @apply text-[#8A938C] font-[poppins] text-[14px] flex-1;
+  }
+
+  .note-actions {
+    @apply flex gap-2;
+  }
+
+  .editBtn {
+    @apply px-3 py-1 rounded-[4px] font-[poppins] text-[12px] font-semibold;
+    @apply border border-white text-white;
+    @apply hover:bg-white/10;
+  }
+
+  .deleteBtn {
+    @apply px-3 py-1 rounded-[4px] font-[poppins] text-[12px] font-semibold;
+    @apply bg-[#E05252] text-white;
+    @apply hover:bg-[#E86060] active:bg-[#F07070];
+  }
+  .confirmBtn {
+    @apply px-3 py-1 rounded-[4px] font-[poppins] text-[12px] font-semibold;
+    @apply bg-[#4ADE80] text-[#0E1410];
+    @apply hover:bg-[#5FE891] active:bg-[#74EC9F];
+  }
+}
+
 @layer utilities {
   #gradientText {
     background: linear-gradient(180deg, #1b5e3a 0%, #1b5e3a 50%, #4ade80 100%);
