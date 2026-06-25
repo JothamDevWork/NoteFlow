@@ -1,1 +1,50 @@
 @import "tailwindcss";
+
+/*
+@layer components{
+  componentname{
+  @apply container
+  @apply fonts
+  @apply position
+  @apply responsiveness
+
+}
+*/
+
+@layer components {
+  .navbar {
+    @apply flex justify-between items-center bg-[#1A1D1A] h-16  w-full px-[80px] py-[8px];
+  }
+
+  .brandnamelogo {
+    @apply inline-flex  gap-[5px];
+  }
+
+  .brandlogo {
+    @apply h-13.75 w-12.5;
+  }
+  .brandname {
+    @apply relative;
+  }
+  .brandname h1 {
+    @apply text-[32px] font-bold font-[poppins];
+  }
+  .brandname p {
+    @apply text-[18px] font-[caveat] text-[#2E9E5B];
+    @apply absolute top-[27px] left-full;
+  }
+
+  .settingicon {
+    @apply size-[24];
+  }
+}
+
+@layer utilities {
+  .gradient-text {
+    background: linear-gradient(180deg, #1b5e3a 0%, #1b5e3a 50%, #4ade80 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+}
