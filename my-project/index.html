@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="src/style.css" />
+    <title>my-project</title>
+  </head>
+  <body>
+    <form>
+      <label for="noteTitle">Title:</label>
+      <input type="text" id="noteTitle" name="noteTitle" />
+      <br />
+      <!--This is temporary -->
+      <label for="noteContent" class="test">Note Content:</label>
+      <textarea id="noteContent" name="noteContent"></textarea>
+      <br />
+      <button type="submit" id="addNoteBtn">Add Note</button>
+    </form>
+
+    <ul id="notesContainer"></ul>
+    <label for="searchBar">Search:</label>
+    <input type="search" id="searchBar" />
+    <button id="searchBtn">search</button>
+    <script type="module" src="src/scripts/app.js"></script>
+  </body>
+</html>
