@@ -9,7 +9,7 @@
   </head>
   <body>
     <nav id="navbar">
-      <div id="brandnameLogo">
+      <div id="brandNameLogo">
         <img id="brandLogo" src="src/assets/noteflowicon.svg" />
 
         <div id="brandName">
@@ -20,11 +20,25 @@
       <img id="settingIcon" src="src/assets/settingicon.png" />
     </nav>
 
-    <main id="noteContainer">
-      <div id="addNoteButton">ADD NOTE</div>
+    <main id="noteCon">
+      <div id="addNoteBtn">ADD NOTE</div>
     </main>
     <footer id="bg-[#0E100E]">
       <p>© 2026 Noteflow by Jotham Den M. Baquiran</p>
     </footer>
+
+    <div id="modalOverlay" class="hidden">
+      <div id="modalBox">
+        <h2 id="modalTitle">New Note</h2>
+        <input type="text" id="noteTitleInput" placeholder="Title" />
+        <textarea id="noteContentInput" placeholder="Content"></textarea>
+        <div id="modalActions">
+          <button id="modalCancelBtn">CANCEL</button>
+          <button id="modalConfirmBtn">CONFIRM</button>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="src/scripts/app.js"></script>
   </body>
 </html>

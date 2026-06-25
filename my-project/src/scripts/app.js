@@ -1,4 +1,8 @@
-import * as noteOperations from "./noteOperations.js";
+import * as noteOperations from "/src/scripts/noteOperations.js";
+const addNoteBtn = document.getElementById("addNoteBtn");
+const noteContainer = document.getElementById("noteCon");
+
+/*import * as noteOperations from "./noteOperations.js";
 import * as searchFilterOperations from "./searchFilterOperations.js";
 import { getNotes } from "./localStorage.js";
 
@@ -37,4 +41,4 @@ window.addEventListener("DOMContentLoaded", () => {
       notesContainer,
     });
   });
-});
+});*/
