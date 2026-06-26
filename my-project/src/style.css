@@ -11,115 +11,20 @@
 }
 */
 
-@layer components {
-  #navbar {
-    @apply bg-[#1A1D1A];
-    @apply h-16  w-full px-[80px] py-[8px];
-    @apply flex justify-between items-center;
-  }
-
-  #brandNameLogo {
-    @apply inline-flex  gap-1.25;
-  }
-
-  #brandLogo {
-    @apply h-13.75 w-12.5;
-  }
-  #brandName {
-    @apply relative;
-  }
-  #brandName h1 {
-    @apply text-[32px] font-bold font-[poppins];
-  }
-  #brandName p {
-    @apply text-[18px] font-[caveat] text-[#2E9E5B];
-    @apply absolute top-[27px] left-full;
-  }
-
-  #settingIcon {
-    @apply size-[24px];
+@layer utilities {
+  #gradientText {
+    background: linear-gradient(180deg, #1b5e3a 0%, #1b5e3a 50%, #4ade80 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
   }
 }
 
-@layer components {
-  main {
-    @apply min-h-screen bg-[#121412] p-[80px];
-    display: flex;
-    justify-content: center;
-    align-items: start;
-    flex-wrap: wrap;
-    overflow-x: hidden;
-  }
-
-  #addNoteBtn {
-    @apply flex justify-center items-center;
-    @apply w-[117px] h-[38px];
-    @apply hover:bg-[#5FE891] active:bg-[#74EC9F];
-    @apply bg-[#4ADE80] rounded-[6px];
-    @apply font-[poppins] text-[14px] font-semibold text-[#0E1410];
-    @apply fixed bottom-20 left-[50%] -translate-x-[50%];
-    @apply z-75;
-  }
-}
-
-@layer components {
-  footer {
-    @apply flex justify-center items-center;
-    @apply h-[48px];
-    @apply bg-[#0E100E];
-  }
-
-  footer p {
-    @apply text-[#8A938C];
-  }
-}
-@layer components {
-  #modalOverlay {
-    @apply fixed inset-0 flex justify-center items-center;
-    @apply bg-black/60;
-    @apply z-50;
-  }
-
-  #modalBox {
-    @apply bg-[#1A1D1A] rounded-[8px] p-8 flex flex-col gap-4;
-    @apply w-[400px];
-  }
-
-  #modalTitle {
-    @apply text-white font-[poppins] font-semibold text-[18px];
-  }
-
-  #noteTitleInput,
-  #noteContentInput {
-    @apply bg-[#121412] text-white font-[poppins] text-[14px];
-    @apply rounded-[6px] p-3 outline-none border border-[#2E9E5B];
-    @apply w-full;
-  }
-
-  #noteContentInput {
-    @apply h-[120px] resize-none;
-  }
-
-  #modalActions {
-    @apply flex justify-end gap-3;
-  }
-
-  #modalCancelBtn {
-    @apply px-4 py-2 rounded-[6px] font-[poppins] text-[14px] font-semibold;
-    @apply border border-[#8A938C] text-[#8A938C];
-    @apply hover:bg-[#8A938C]/10;
-  }
-
-  #modalConfirmBtn {
-    @apply px-4 py-2 rounded-[6px] font-[poppins] text-[14px] font-semibold;
-    @apply bg-[#4ADE80] text-[#0E1410];
-    @apply hover:bg-[#5FE891] active:bg-[#74EC9F];
-  }
-}
-
+/*note-card*/
 @layer components {
   #noteCon {
-    @apply flex flex-wrap gap-4;
+    @apply relative;
   }
 
   .note-card {
@@ -159,13 +64,108 @@
     @apply hover:bg-[#5FE891] active:bg-[#74EC9F];
   }
 }
+/*note-card*/
 
-@layer utilities {
-  #gradientText {
-    background: linear-gradient(180deg, #1b5e3a 0%, #1b5e3a 50%, #4ade80 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: transparent;
+/*Navigation Bar*/
+@layer components {
+  #navbar {
+    @apply bg-[#1A1D1A]  h-16  w-full px-[80px] py-[8px];
+    @apply flex justify-between items-center;
+  }
+
+  #brandNameLogo {
+    @apply inline-flex gap-1.25;
+  }
+
+  #brandLogo {
+    @apply h-13.75 w-12.5;
+  }
+  #brandName {
+    @apply relative;
+  }
+  #brandName h1 {
+    @apply text-[32px] font-bold font-[poppins];
+  }
+  #brandName p {
+    @apply text-[18px] font-[caveat] text-[#2E9E5B];
+    @apply absolute top-[27px] left-full;
+  }
+
+  #settingIcon {
+    @apply size-[24px];
   }
 }
+/*Navigation Bar*/
+
+/*Main*/
+@layer components {
+  main {
+    @apply min-h-screen bg-[#121412] p-[80px];
+    @apply flex justify-center;
+  }
+
+  #addNoteBtn {
+    @apply flex justify-center items-center;
+    @apply w-[117px] h-[38px];
+    @apply hover:bg-[#5FE891] active:bg-[#74EC9F];
+    @apply bg-[#4ADE80] rounded-[6px];
+    @apply font-[poppins] text-[14px] font-semibold text-[#0E1410];
+    @apply fixed bottom-20 left-[50%] -translate-x-[50%];
+    @apply z-75;
+  }
+}
+
+@layer components {
+  #modalOverlay {
+    @apply fixed inset-0 flex justify-center items-center;
+    @apply bg-black/60;
+    @apply z-50;
+  }
+  #modalBox {
+    @apply bg-[#1A1D1A] rounded-[8px] p-8 flex flex-col gap-4;
+    @apply w-[400px];
+  }
+
+  #modalTitle {
+    @apply text-white font-[poppins] font-semibold text-[18px];
+  }
+
+  #noteTitleInput,
+  #noteContentInput {
+    @apply bg-[#121412] text-white font-[poppins] text-[14px];
+    @apply rounded-[6px] p-3 outline-none border border-[#2E9E5B];
+    @apply w-full;
+  }
+
+  #modalActions {
+    @apply flex justify-end gap-3;
+  }
+
+  #modalCancelBtn {
+    @apply px-4 py-2 rounded-[6px] font-[poppins] text-[14px] font-semibold;
+    @apply border border-[#8A938C] text-[#8A938C];
+    @apply hover:bg-[#8A938C]/10;
+  }
+
+  #modalConfirmBtn {
+    @apply px-4 py-2 rounded-[6px] font-[poppins] text-[14px] font-semibold;
+    @apply bg-[#4ADE80] text-[#0E1410];
+    @apply hover:bg-[#5FE891] active:bg-[#74EC9F];
+  }
+}
+
+/*Main*/
+
+/*Footer*/
+@layer components {
+  footer {
+    @apply flex justify-center items-center;
+    @apply h-[48px];
+    @apply bg-[#0E100E];
+  }
+
+  footer p {
+    @apply text-[#8A938C];
+  }
+}
+/*Footer*/

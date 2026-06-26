@@ -8,10 +8,10 @@
     <title>my-project</title>
   </head>
   <body>
+    <!-- Navigation Bar-->
     <nav id="navbar">
       <div id="brandNameLogo">
         <img id="brandLogo" src="src/assets/noteflowicon.svg" />
-
         <div id="brandName">
           <h1 id="gradientText">NOTE</h1>
           <p>flow</p>
@@ -19,17 +19,24 @@
       </div>
       <img id="settingIcon" src="src/assets/settingicon.png" />
     </nav>
+    <!-- Navigation Bar-->
 
+    <!--Main-->
     <main id="noteCon">
       <div id="addNoteBtn">ADD NOTE</div>
     </main>
+    <!--Main-->
+
+    <!--Footer-->
     <footer id="bg-[#0E100E]">
       <p>© 2026 Noteflow by Jotham Den M. Baquiran</p>
     </footer>
+    <!--Footer-->
 
+    <!--ModalOverlay-->
     <div id="modalOverlay" class="hidden">
       <div id="modalBox">
-        <h2 id="modalTitle">New Note</h2>
+        <h1 id="modalTitle">New Note</h1>
         <input type="text" id="noteTitleInput" placeholder="Title" />
         <textarea id="noteContentInput" placeholder="Content"></textarea>
         <div id="modalActions">
@@ -38,7 +45,8 @@
         </div>
       </div>
     </div>
+    <!--ModalOverlay-->
 
-    <script type="module" src="src/scripts/app.js"></script>
+    <script type="module" src="src/scripts/main.js"></script>
   </body>
 </html>
