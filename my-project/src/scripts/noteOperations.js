@@ -1,6 +1,8 @@
 import * as Storage from "/src/scripts/localStorage.js";
 import { noteCard } from "/src/scripts/createNoteCardOperation.js";
 
+let notes = Storage.getNotes();
+
 export const addNote = (title, content, noteContainer) => {
   const note = {
     id: Date.now(),
@@ -8,10 +10,8 @@ export const addNote = (title, content, noteContainer) => {
     content,
   };
 
-  const notes = Storage.getNotes();
   notes.push(note);
   Storage.saveNotes(notes);
-
   const card = noteCard(note);
   noteContainer.appendChild(card);
 
@@ -19,9 +19,45 @@ export const addNote = (title, content, noteContainer) => {
 };
 
 export function loadNotes(noteContainer) {
-  const notes = Storage.getNotes();
   notes.forEach((note) => {
     const card = noteCard(note);
     noteContainer.appendChild(card);
   });
 }
+
+export const deleteNote = (id, card) => {
+  notes = notes.filter((note) => note.id !== id);
+  Storage.saveNotes(notes);
+  card.remove();
+};
+
+export const editNote = (note, card) => {
+  const titleEdit = card.querySelector(".note-title");
+  const contentEdit = card.querySelector(".note-content");
+  const editBtn = card.querySelector(".editBtn");
+
+  titleEdit.contentEditable = true;
+  contentEdit.contentEditable = true;
+  titleEdit.focus();
+
+  editBtn.textContent = "CONFIRM";
+  editBtn.classList.add("confirmBtn");
+  editBtn.classList.remove("editBtn");
+
+  editBtn.addEventListener(
+    "click",
+    () => {
+      note.title = titleEdit.textContent;
+      note.content = contentEdit.textContent;
+
+      titleEdit.contentEditable = false;
+      contentEdit.contentEditable = false;
+      editBtn.textContent = "EDIT";
+      editBtn.classList.add("editBtn");
+      editBtn.classList.remove("confirmBtn");
+
+      Storage.saveNotes(notes);
+    },
+    { once: true },
+  );
+};

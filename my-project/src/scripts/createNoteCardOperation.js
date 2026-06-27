@@ -1,3 +1,4 @@
+import { editNote, deleteNote } from "/src/scripts/noteOperations.js";
 export const noteCard = (note) => {
   const card = document.createElement("div");
   card.classList.add("note-card");
@@ -11,6 +12,14 @@ export const noteCard = (note) => {
   <button class="deleteBtn">DELETE</button>
   </div>
   `;
+
+  card.querySelector(".deleteBtn").addEventListener("click", () => {
+    deleteNote(note.id, card);
+  });
+
+  card.querySelector(".editBtn").addEventListener("click", () => {
+    editNote(note, card);
+  });
 
   return card;
 };
