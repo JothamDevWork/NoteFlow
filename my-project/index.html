@@ -11,14 +11,30 @@
   <body>
     <!-- Navigation Bar-->
     <nav id="navbar">
-      <div id="brandNameLogo">
-        <img id="brandLogo" src="src/assets/noteflowicon.svg" />
-        <div id="brandName">
-          <h1 id="gradientText">NOTE</h1>
-          <p>flow</p>
+      <div class="flex justify-between items-center w-full sm:w-auto">
+        <div id="brandNameLogo">
+          <img id="brandLogo" src="src/assets/noteflowicon.svg" />
+          <div id="brandName">
+            <h1 id="gradientText">NOTE</h1>
+            <p>flow</p>
+          </div>
         </div>
+        <img
+          id="settingIcon"
+          class="sm:hidden"
+          src="src/assets/settingicon.png"
+        />
       </div>
-      <img id="settingIcon" src="src/assets/settingicon.png" />
+
+      <div id="searchbarcon">
+        <input type="search" id="searchbar" placeholder="Search notes..." />
+      </div>
+
+      <img
+        id="settingIcon"
+        class="hidden sm:block"
+        src="src/assets/settingicon.png"
+      />
     </nav>
     <!-- Navigation Bar-->
 
