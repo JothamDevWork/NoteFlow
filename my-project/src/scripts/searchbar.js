@@ -1,4 +1,5 @@
-import { noteContainer, masonry } from "./main.js";
+import { noteContainer } from "./main.js";
+import { masonry } from "./masonryLib";
 
 const searchbar = document.getElementById("searchbar");
 

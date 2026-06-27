@@ -1,6 +1,7 @@
 import * as Storage from "/src/scripts/localStorage.js";
 import { noteCard } from "/src/scripts/createNoteCardOperation.js";
-import { masonry } from "/src/scripts/main.js";
+
+import * as MasonryLib from "./masonryLib";
 
 let notes = Storage.getNotes();
 
@@ -30,7 +31,8 @@ export const deleteNote = (id, card) => {
   notes = notes.filter((note) => note.id !== id);
   Storage.saveNotes(notes);
   card.remove();
-  masonry.layout();
+  MasonryLib.masonry.layout();
+  /*masonry.layout();*/
 };
 
 export const editNote = (note, card) => {

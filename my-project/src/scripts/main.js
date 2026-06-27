@@ -1,4 +1,5 @@
-import Masonry from "masonry-layout";
+/*import Masonry from "masonry-layout";*/
+import { initMasonry, masonry } from "./masonryLib";
 import * as noteOperations from "/src/scripts/noteOperations.js";
 import * as modalOperations from "/src/scripts/modalOperations.js";
 import "/src/scripts/searchbar.js";
@@ -13,11 +14,13 @@ const modalConfirmBtn = document.getElementById("modalConfirmBtn");
 
 noteOperations.loadNotes(noteContainer);
 
-export const masonry = new Masonry(noteContainer, {
+/*export const masonry = new Masonry(noteContainer, {
   itemSelector: ".note-card",
   columnWidth: ".note-card",
   gutter: 16,
-});
+});*/
+
+initMasonry();
 
 modalConfirmBtn.addEventListener("click", () => {
   const card = modalOperations.confirmModal();
