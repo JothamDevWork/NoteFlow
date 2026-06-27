@@ -1,5 +1,5 @@
-import * as Storage from "/src/scripts/localStorage.js";
-import { noteCard } from "/src/scripts/createNoteCardOperation.js";
+import * as Storage from "./localStorage.js";
+import { noteCard } from "./createNoteCardOperation.js";
 
 import * as MasonryLib from "./masonryLib";
 

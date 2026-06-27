@@ -1,4 +1,4 @@
-import { editNote, deleteNote } from "/src/scripts/noteOperations.js";
+import { editNote, deleteNote } from "./noteOperations.js";
 export const noteCard = (note) => {
   const card = document.createElement("div");
   card.classList.add("note-card");
