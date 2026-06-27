@@ -55,7 +55,9 @@ export const editNote = (note, card) => {
       editBtn.textContent = "EDIT";
       editBtn.classList.add("editBtn");
       editBtn.classList.remove("confirmBtn");
-
+      const notes = Storage.getNotes().map((n) =>
+        n.id === note.id ? note : n,
+      );
       Storage.saveNotes(notes);
     },
     { once: true },
